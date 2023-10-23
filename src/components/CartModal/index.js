@@ -147,7 +147,7 @@ export default function CartModal() {
               router.push("/cart");
               setShowCartModal(false);
             }}
-            className="mt-1.5 w-full inline-block bg-black text-white px-5 py-3 text-xs font-medium uppercase tracking-wide"
+            className="mt-1.5 w-full inline-block bg-[#3362CC] rounded-md text-white px-5 py-3 text-xs font-medium uppercase tracking-wide"
           >
             Go To Cart
           </button>
@@ -158,7 +158,7 @@ export default function CartModal() {
               router.push("/checkout");
               setShowCartModal(false);
             }}
-            className="mt-1.5 w-full inline-block bg-black text-white px-5 py-3 text-xs font-medium uppercase tracking-wide disabled:opacity-50"
+            className="mt-1.5 w-full inline-block bg-[#3362CC] rounded-md text-white px-5 py-3 text-xs font-medium uppercase tracking-wide disabled:opacity-50"
           >
             Checkout
           </button>

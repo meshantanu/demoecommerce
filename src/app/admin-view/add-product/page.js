@@ -79,7 +79,7 @@ export default function AdminAddNewProduct() {
     setCurrentUpdatedProduct,
   } = useContext(GlobalContext);
 
-  console.log(currentUpdatedProduct);
+  // console.log(currentUpdatedProduct);
 
   const router = useRouter();
 
@@ -145,7 +145,7 @@ export default function AdminAddNewProduct() {
     }
   }
 
-  console.log(formData);
+  // console.log(formData);
 
   return (
     <div className="w-full mt-5 mr-0 mb-0 ml-0 relative">
@@ -158,14 +158,14 @@ export default function AdminAddNewProduct() {
             onChange={handleImage}
           />
 
-          <div className="flex gap-2 flex-col">
+          {/* <div className="flex gap-2 flex-col">
             <label>Available sizes</label>
             <TileComponent
               selected={formData.sizes}
               onClick={handleTileClick}
               data={AvailableSizes}
             />
-          </div>
+          </div> */}
           {adminAddProductformControls.map((controlItem) =>
             controlItem.componentType === "input" ? (
               <InputComponent
@@ -196,7 +196,7 @@ export default function AdminAddNewProduct() {
           )}
           <button
             onClick={handleAddProduct}
-            className="inline-flex w-full items-center justify-center bg-black px-6 py-4 text-lg text-white font-medium uppercase tracking-wide"
+            className="inline-flex w-full items-center justify-center bg-[#3362CC] rounded-md px-6 py-4 text-lg text-white font-medium uppercase tracking-wide"
           >
             {componentLevelLoader && componentLevelLoader.loading ? (
               <ComponentLevelLoader

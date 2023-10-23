@@ -29,7 +29,7 @@ export default function Checkout() {
   const params = useSearchParams();
 
   const publishableKey =
-    "pk_test_51NMv6ZSC6E6fnyMeRIEb9oEXdGRCC9yrBTT4xWHgcjWOuFcqFiAHErvaS50K1hl5t5WJXVGfLLWxvb705IWJhA3300yCcrMnlM";
+    "pk_test_51O4EHNSAev12IwkGyXBogOTtJJq3WlhmSOHGcNHFtyvkAYLwE5WGkwHBz5tPzSbnOulj9pnXX92kYAWbm9NEUC9o00LyT58NVA";
   const stripePromise = loadStripe(publishableKey);
 
   console.log(cartItems);
@@ -246,7 +246,7 @@ export default function Checkout() {
                   <p>City : {item.city}</p>
                   <p>Country : {item.country}</p>
                   <p>PostalCode : {item.postalCode}</p>
-                  <button className="mt-5 mr-5 inline-block bg-black text-white px-5 py-3 text-xs font-medium uppercase tracking-wide">
+                  <button className="mt-5 mr-5 inline-block bg-[#3362CC] rounded-md text-white px-5 py-3 text-xs font-medium uppercase tracking-wide">
                     {item._id === selectedAddress
                       ? "Selected Address"
                       : "Select Address"}
@@ -259,7 +259,7 @@ export default function Checkout() {
           </div>
           <button
             onClick={() => router.push("/account")}
-            className="mt-5 mr-5 inline-block bg-black text-white px-5 py-3 text-xs font-medium uppercase tracking-wide"
+            className="mt-5 mr-5 inline-block bg-[#3362CC] rounded-md text-white px-5 py-3 text-xs font-medium uppercase tracking-wide"
           >
             Add new address
           </button>
@@ -299,7 +299,7 @@ export default function Checkout() {
                   Object.keys(checkoutFormData.shippingAddress).length === 0
                 }
                 onClick={handleCheckout}
-                className="disabled:opacity-50 mt-5 mr-5 w-full  inline-block bg-black text-white px-5 py-3 text-xs font-medium uppercase tracking-wide"
+                className="disabled:opacity-50 mt-5 mr-5 w-full  inline-block bg-[#3362CC] rounded-md text-white px-5 py-3 text-xs font-medium uppercase tracking-wide"
               >
                 Checkout
               </button>

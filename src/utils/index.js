@@ -6,23 +6,23 @@ export const navOptions = [
   },
   {
     id: "listing",
-    label: "All Products",
-    path: "/product/listing/all-products",
+    label: "All Books",
+    path: "/product/listing/all-books",
   },
   {
     id: "listingMen",
-    label: "Men",
-    path: "/product/listing/men",
+    label: "UPSC",
+    path: "/product/listing/upsc",
   },
   {
     id: "listingWomen",
-    label: "Women",
-    path: "/product/listing/women",
+    label: "Mains",
+    path: "/product/listing/mains",
   },
   {
     id: "listingKids",
-    label: "kids",
-    path: "/product/listing/kids",
+    label: "Prelims",
+    path: "/product/listing/prelims",
   },
 ];
 
@@ -128,15 +128,15 @@ export const adminAddProductformControls = [
     options: [
       {
         id: "men",
-        label: "Men",
+        label: "UPSC",
       },
       {
         id: "women",
-        label: "Women",
+        label: "Mains",
       },
       {
         id: "kids",
-        label: "Kids",
+        label: "Prelims",
       },
     ],
   },
