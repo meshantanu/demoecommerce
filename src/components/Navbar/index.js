@@ -33,15 +33,7 @@ function NavItems({ isModalView = false, isAdminView, router }) {
                 {item.label}
               </li>
             ))
-          : navOptions.map((item) => (
-              <li
-                className="cursor-pointer block py-2 pl-3 pr-4 text-gray-900 hover:!text-[#3362CC] rounded md:p-0"
-                key={item.id}
-                onClick={() => router.push(item.path)}
-              >
-                {item.label}
-              </li>
-            ))}
+          : <></>}
       </ul>
     </div>
   );
@@ -157,6 +149,7 @@ export default function Navbar() {
                 Login
               </button>
             )}
+            {isAdminView &&
             <button
               data-collapse-toggle="navbar-sticky"
               type="button"
@@ -179,7 +172,7 @@ export default function Navbar() {
                   clipRule="evenodd"
                 ></path>
               </svg>
-            </button>
+            </button>}
           </div>
           <NavItems router={router} isAdminView={isAdminView} />
         </div>

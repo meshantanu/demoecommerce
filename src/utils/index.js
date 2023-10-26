@@ -117,7 +117,7 @@ export const adminAddProductformControls = [
     type: "text",
     placeholder: "Enter description",
     label: "Description",
-    componentType: "input",
+    componentType: "button",
   },
   {
     id: "category",

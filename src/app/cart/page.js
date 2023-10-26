@@ -30,7 +30,7 @@ export default function Cart() {
               productID: {
                 ...item.productID,
                 price:
-                  item.productID.onSale === "yes"
+                  item?.productID?.onSale === "yes"
                     ? parseInt(
                         (
                           item.productID.price -

@@ -7,6 +7,9 @@ import ComponentLevelLoader from "@/components/Loader/componentlevel";
 import Notification from "@/components/Notification";
 import { GlobalContext } from "@/context";
 import { addNewProduct, updateAProduct } from "@/services/product";
+import ReactModal from 'react-modal';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 import {
   AvailableSizes,
   adminAddProductformControls,
@@ -69,8 +72,24 @@ const initialFormData = {
   priceDrop: 0,
 };
 
-export default function AdminAddNewProduct() {
+function AdminAddNewProduct() {
   const [formData, setFormData] = useState(initialFormData);
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [description, setDescription] = useState('');
+  const [editorHtml, setEditorHtml] = useState('');
+
+  const openModal = () => {
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
+  const handleSave = () => {
+    setDescription(editorHtml);
+    closeModal();
+  };
 
   const {
     componentLevelLoader,
@@ -145,8 +164,8 @@ export default function AdminAddNewProduct() {
     }
   }
 
-  // console.log(formData);
-
+  console.log(formData);
+  
   return (
     <div className="w-full mt-5 mr-0 mb-0 ml-0 relative">
       <div className="flex flex-col items-start justify-start p-10 bg-white shadow-2xl rounded-xl relative">
@@ -192,7 +211,31 @@ export default function AdminAddNewProduct() {
                   });
                 }}
               />
-            ) : null
+            ) : <div className="relative">
+            <p className=" pt-0 pr-2 pb-0 pl-2 absolute -mt-3 mr-0 mb-0 ml-2 font-medium text-gray-600 bg-white">
+              {controlItem.label}
+            </p>
+          <button
+          type="button" onClick={openModal}
+          className="border  placeholder-gray-400 focus:outline-none focus:border-black w-full pt-4 pr-4 pb-4 pl-4 mr-0 mt-0 ml-0 text-base block bg-white border-gray-300 rounded-md"
+
+          >Add Description</button>
+          <input
+          type={controlItem.type}
+          placeholder={controlItem.placeholder}
+          label={controlItem.label}
+          value={formData[controlItem.id]}
+          className="hidden"
+          onChange={(event) => {
+            setFormData({
+              ...formData,
+              [controlItem.id]: description,
+            });
+          }}
+          >
+          
+          </input>
+          </div>
           )}
           <button
             onClick={handleAddProduct}
@@ -212,7 +255,34 @@ export default function AdminAddNewProduct() {
           </button>
         </div>
       </div>
+
+      <ReactModal
+        isOpen={isModalOpen}
+        onRequestClose={closeModal}
+        contentLabel="Description Modal"
+        className={' bg-white p-[50px] mt-10'}
+      >
+        <ReactQuill
+          value={editorHtml}
+          onChange={setEditorHtml}
+          modules={AdminAddNewProduct.modules}
+        />
+        <button onClick={handleSave}>Save</button>
+        <button onClick={closeModal}>Cancel</button>
+      </ReactModal>
+
       <Notification />
     </div>
   );
 }
+
+AdminAddNewProduct.modules = {
+  toolbar: [
+    ['bold', 'italic', 'underline', 'strike'],
+    [{ list: 'ordered' }, { list: 'bullet' }],
+    ['link', 'image'],
+    ['clean'],
+  ],
+};
+
+export default AdminAddNewProduct
